@@ -8,6 +8,7 @@
 
 :root {
     --myBlue: #0084fd;
+    --myViolet: #9792e4;
 }
 
 html {
@@ -16,15 +17,33 @@ html {
 
 img {
     max-width: 100%;
+    display: block;
 }
+
 
 a {
     text-decoration: none;
     color: white;
 }
 
-.header-container {
+ul {
+    list-style: none;
+}
+
+p,
+blockquote {
+    line-height: 160%;
+}
+
+header {
     background-color: var(--myBlue);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+}
+
+.header-container {
     padding: 1.5em;
     display: flex;
     justify-content: space-between;
@@ -32,7 +51,9 @@ a {
     width: 100%;
 }
 
-
+nav ul {
+    display: none;
+}
 
 header i {
     color: white;
@@ -40,15 +61,16 @@ header i {
 }
 
 .container {
-    margin-block: 2em;
+    margin-block: 4em;
     display: flex;
     flex-direction: column;
-    padding-inline: 1.5em;
+    margin-inline: 1.5em;
     row-gap: 1em;
 }
 
 .features .container {
     margin-top: 3.5em;
+    padding-top: 5.5em;
 }
 
 .card {
@@ -60,24 +82,40 @@ header i {
     flex-direction: column;
     row-gap: 2em;
     align-items: center;
-    position: relative;
     text-align: center;
+    flex-grow: 0;
 }
 
 .card a {
     background-color: var(--myBlue);
-    padding-block: 0.5em;
-    padding-inline: 3em;
+    padding-block: 0.7em;
     border-radius: 20px;
+    font-weight: bold;
 }
+
+.card .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 2em;
+}
+
+.card .text a {
+    width: 50%;
+    align-self: center;
+    letter-spacing: 0.15em;
+}
+
 
 .card h2 {
     color: var(--myBlue);
+    word-break: keep-all;
+    max-width: 95%;
+    overflow-x: hidden;
 }
 
 .card p {
     color: #5a6e7f;
-    line-height: 150%;
     font-weight: bold;
 }
 
@@ -90,22 +128,297 @@ header i {
     padding-bottom: 2em;
 }
 
+.planning {
+    background-color: var(--myViolet);
+    text-align: center;
+    padding-block: 1.5em;
+}
+
+.planning .row-top,
+.planning .row-bottom {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+}
+
+.planning .row-top {
+    color: white;
+}
+
+
+
+.planning .row-bottom {
+    background-color: white;
+    border-radius: 60px;
+    align-items: center;
+    padding: 1em;
+}
+
+.planning .row-bottom p {
+    font-style: italic;
+    text-align: center;
+    width: 80%;
+}
+
+.planning .row-bottom>div {
+    background-color: var(--myViolet);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 0;
+}
+
+.planning .row-bottom i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 1.2rem;
+    transform: translate(-50%, -50%);
+}
+
+
+.planning .row-top h2 {
+    font-size: 2rem;
+}
+
+.planning .row-bottom h2 {
+    font-size: 1.5rem;
+}
+
+.testimonials .text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.testimonials .text h3 {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.testimonials .text h2 {
+    font-size: 2rem;
+    color: var(--myViolet)
+}
+
+.testimonials .text p {
+    font-size: 1.2rem;
+}
+
+.testimonial.card {
+    border-radius: 40px;
+    background-color: var(--myViolet);
+    color: white;
+    padding-bottom: 2em;
+}
+
+.testimonial.card blockquote {
+    font-size: 1.2rem;
+    margin-bottom: 1.5em;
+}
+
+.testimonial.card .name {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+blockquote:before {
+    content: open-quote;
+}
+
+blockquote:after {
+    content: close-quote;
+}
+
+blockquote:before,
+blockquote:after {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 4em;
+    top: .2em;
+    position: relative;
+}
+
+.testimonial.card figure {
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+}
+
+.testimonial.card:nth-of-type(2) figure {
+    background-image: url("../img/testimonial1.jpg");
+}
+
+.testimonial.card:nth-of-type(3) figure {
+    background-image: url("../img/testimonial2.jpg");
+}
+
+.testimonial.card:nth-of-type(4) figure {
+    background-image: url("../img/testimonial3.jpg");
+}
+
+
+
+
 
 /* MEDIA QUERY */
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 768px) {
     .features .container {
         flex-direction: row;
         flex-wrap: wrap;
-        column-gap: 1em;
+        column-gap: 2em;
     }
 
-    .card:not(.big) {
-        flex-basis: calc(100% / 3 - (1em))
-    }
+
 
     .card.big {
-        flex-basis: calc((100% * 2 / 3) - 1em);
+        width: calc((100% * 2 / 3) - (1em * 2 / 3));
     }
+
+
+    .card:not(.big) {
+        width: calc((100% / 3) - (2em * 2 / 3))
+    }
+
+    .planning .row-top h2 {
+        font-size: 3.5rem;
+    }
+
+    .testimonial.card {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        gap: 3em;
+    }
+
+    .testimonial.card figure {
+        flex-basis: 30%;
+        border-radius: 50%;
+    }
+
+    .testimonial.card .quote {
+        flex-basis: 70%;
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+
+
+    .container {
+        width: 60%;
+        margin: 2em auto;
+    }
+
+    .header-container {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+
+    .card.big {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .card.big a {
+        text-align: center;
+        align-self: flex-start;
+    }
+
+    .card.big figure {
+        align-self: flex-end;
+        padding-right: 2.5em;
+    }
+
+
+    .card p {
+        font-size: 1.3rem;
+    }
+
+    .card.big .text p {
+        width: 80%;
+    }
+
+
+    .card h2 {
+        font-size: 2rem;
+    }
+
+    .card a,
+    nav a {
+        font-size: 1.3rem;
+    }
+
+    nav div {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 1em;
+    }
+
+    .planning .container {
+        flex-direction: row;
+        column-gap: 5em;
+        padding-top: 10em;
+        padding-bottom: 5em;
+        justify-content: center;
+    }
+
+    .planning .row-top p {
+        font-size: 1.2rem;
+    }
+
+    .planning .row-bottom p {
+        font-size: 1.3rem;
+    }
+
+    .planning .row-bottom {
+        align-self: flex-end;
+        flex-basis: 35%;
+        padding-top: 2em;
+        padding-bottom: 3.5em;
+    }
+
+    .planning .row-top {
+        flex-basis: 40%;
+        text-align: left;
+    }
+
+    .planning .row-top img {
+        padding-bottom: 7em;
+    }
+
+    .planning .row-top h2 {
+        font-size: 2.5rem;
+    }
+
+    .planning .row-bottom h2 {
+        font-size: 1.8rem;
+    }
+
+    .planning .row-bottom img {
+        max-width: 70%;
+    }
+
+    .planning .row-bottom>div {
+        transform: scale(1.3);
+    }
+
+    .testimonial.card figure {
+        flex-basis: 19%;
+        border-radius: 100%;
+    }
+
+
 
 }
