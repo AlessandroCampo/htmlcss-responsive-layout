@@ -1,0 +1,101 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --myBlue: #0084fd;
+}
+
+html {
+    font-family: 'PT Sans', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.header-container {
+    background-color: var(--myBlue);
+    padding: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+header i {
+    color: white;
+    font-size: 24px;
+}
+
+.container {
+    margin-block: 2em;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1.5em;
+    row-gap: 1em;
+}
+
+.features .container {
+    margin-top: 3.5em;
+}
+
+.card {
+    background-color: #b5ddff;
+    border-radius: 20px;
+    padding-top: 2em;
+    padding-inline: 2em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.card a {
+    background-color: var(--myBlue);
+    padding-block: 0.5em;
+    padding-inline: 3em;
+    border-radius: 20px;
+}
+
+.card h2 {
+    color: var(--myBlue);
+}
+
+.card p {
+    color: #5a6e7f;
+    line-height: 150%;
+    font-weight: bold;
+}
+
+.card>i {
+    font-size: 6rem;
+    color: var(--myBlue)
+}
+
+.card:not(.big) p {
+    padding-bottom: 2em;
+}
+
+
+/* MEDIA QUERY */
+
+@media screen and (min-width: 780px) {
+    .container {
+        flex-direction: row;
+    }
+
+}
