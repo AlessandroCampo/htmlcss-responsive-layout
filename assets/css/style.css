@@ -94,8 +94,18 @@ header i {
 /* MEDIA QUERY */
 
 @media screen and (min-width: 780px) {
-    .container {
+    .features .container {
         flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 1em;
+    }
+
+    .card:not(.big) {
+        flex-basis: calc(100% / 3 - (1em))
+    }
+
+    .card.big {
+        flex-basis: calc((100% * 2 / 3) - 1em);
     }
 
 }
